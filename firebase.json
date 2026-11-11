@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "site": "sribhuwaneshwarimatricschool",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "_backup/**",
+      "public/**",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

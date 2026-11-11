@@ -1,0 +1,97 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #004080;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hero Section Background already in HTML */
+#hero {
+    position: relative;
+}
+
+#hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.2em;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #004080;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}

@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Bhuwaneshwari Matric School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: #043d72;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        /* Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        .logo img {
+            height: 100px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 25px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 8px 0;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            color: #043d72;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+        
+        .hero-slider {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+        
+        .slide-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            background-color: #043d72;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #032b4f;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        
+        .features-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .features-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #043d72;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Featured Event */
+        .featured-event {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .event-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .event-box {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .event-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            background-color: #043d72;
+            color: white;
+        }
+        
+        .event-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .event-text p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .event-details {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .event-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        
+        .event-image {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .event-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        
+        .values-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .values-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .values-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #f9f9f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #043d72;
+            font-size: 30px;
+        }
+        
+        .value-title {
+            font-size: 20px;
+            color: #043d72;
+            margin-bottom: 15px;
+        }
+        
+        .value-desc {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        
+        .gallery-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .gallery-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+        
+        .team-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .team-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .team-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h4 {
+            font-size: 20px;
+            color: #043d72;
+            margin-bottom: 5px;
+        }
+        
+        .member-position {
+            color: #f7951e;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .member-bio {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #043d72;
+            color: white;
+            margin: 0 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #f7951e;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .contact-form-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .contact-title {
+            font-size: 36px;
+            color: #043d72;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #f7951e;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: #043d72;
+            margin-right: 15px;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #043d72;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #043d72;
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #f7951e;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            margin-left: 5px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: #f7951e;
+        }
+        
+        .footer-bottom {
+            background-color: #032b4f;
+            padding: 20px 0;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-bottom p {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #043d72;
+            border-radius: 3px;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                background-color: white;
+                height: 100vh;
+                width: 300px;
+                flex-direction: column;
+                padding: 80px 0 30px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: 0.3s;
+                z-index: 99;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu li a {
+                padding: 15px;
+                font-size: 18px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                cursor: pointer;
+                color: #043d72;
+            }
+            
+            .about-container, .contact-container {
+                flex-direction: column;
+            }
+            
+            .history-container, .event-box {
+                flex-direction: column;
+            }
+            
+            .event-images {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .top-bar-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-info, .social-icons {
+                margin-bottom: 5px;
+            }
+            
+            .slide-content h1 {
+                font-size: 32px;
+            }
+            
+            .slide-content p {
+                font-size: 16px;
+            }
+            
+            .section-title, .features-title, .gallery-title, .contact-title, .team-title, .values-title {
+                font-size: 28px;
+            }
+            
+            .event-text {
+                padding: 30px;
+            }
+            
+            .event-text h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="contact-info">
+                <a href="mailto:info@sbmatricschool.com"><i class="fas fa-envelope"></i> info@sbmatricschool.com</a>
+                <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 9876543210</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="/assets/images/school_bgm.png" alt="Sri Bhuwaneshwari Matric School">
+                </a>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-menu">
+                <div class="close-menu">&times;</div>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="admission.html">Admissions</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('/assets/images/site1.jpg')">
+                <div class="overlay"></div>
+                <div class="slide-content">
+                    <h1>Welcome to Sri Bhuwaneshwari Matric School</h1>
+                    <p>Nurturing minds, building character, and preparing global citizens for tomorrow's challenges.</p>
+                    <a href="#about" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="/assets/images/site1.jpg" alt="About Sri Bhuwaneshwari Matric School">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">About Our School</h2>
+                <p>Welcome to Sri Bhuwaneshwari Matric School, where we blend traditional values with modern educational approaches to create an environment that fosters academic excellence, personal growth, and cultural awareness.</p>
+                <p>Our mission is to provide a holistic education that empowers students to become confident, compassionate, and responsible global citizens. We believe in nurturing each child's unique talents and helping them reach their full potential.</p>
+                <p>We take pride in our special programs such as yoga, which helps students develop physical strength, mental clarity, and emotional balance. Recently, our students showcased their incredible talent by successfully performing 23 asanas in just 20 minutes and 23 seconds - a testament to the hard work put in by both our dedicated teachers and students.</p>
+                <p>Founded with a vision to transform education, Sri Bhuwaneshwari Matric School offers state-of-the-art facilities, experienced faculty, and a curriculum that encourages critical thinking, creativity, and innovation.</p>
+                <a href="#" class="btn">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="featured-event">
+        <div class="event-container">
+            <h2 class="section-title">Featured Achievement</h2>
+            <div class="event-box">
+                <div class="event-text">
+                    <h3>Sri Bhuwaneshwari Matric School Yoga Achievement</h3>
+                    <p>Our school recently held an event that showcased the incredible talent of our yoga students. Maximum students from various age groups participated in the event and successfully performed 23 asanas in 20 minutes and 23 seconds.</p>
+                    <p>It was truly an inspiring sight to see these young minds come together and showcase their skill and dedication to the ancient practice of yoga. The event was a testament to the hard work put in by both teachers and students alike, which is why it was such a success.</p>
+                    <div class="event-details">
+                        <p><strong>Principal:</strong> V K Barvathavarthini, Correspondent & Principal</p>
+                        <p><strong>Record No:</strong> NWR-2023-1039</p>
+                        <p><strong>Date:</strong> 18 March 2023</p>
+                    </div>
+                </div>
+                <div class="event-images">
+                    <div class="event-image">
+                        <img src="/assets/images/sc1.jpg" alt="Yoga Event - Students practicing yoga poses">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/sc2.jpg" alt="Yoga Event - Group practice">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/sc3.jpg" alt="Yoga Event - Different pose">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/sc4.jpg" alt="Yoga Event - Award ceremony">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="features-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Academic Excellence</h3>
+                    <p class="feature-desc">Our rigorous curriculum and dedicated faculty ensure that students achieve their highest academic potential.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Experienced Faculty</h3>
+                    <p class="feature-desc">Our teachers are highly qualified professionals committed to providing quality education.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="feature-title">Modern Facilities</h3>
+                    <p class="feature-desc">State-of-the-art infrastructure that provides an optimal learning environment for students.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Global Perspective</h3>
+                    <p class="feature-desc">Our curriculum incorporates global awareness and prepares students for an interconnected world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="values-title">Our Core Values</h2>
+            <p class="values-intro">At Sri Bhuwaneshwari Matric School, our educational philosophy is guided by a set of core values that shape our approach to teaching and learning. These values form the foundation of our school culture and inform everything we do.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-desc">We strive for excellence in all aspects of education, encouraging our students to aim high and achieve their full potential in academics, sports, and co-curricular activities.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="value-title">Compassion</h3>
+                    <p class="value-desc">We nurture empathy and kindness in our students, teaching them to care for others and contribute positively to their communities and the world at large.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-desc">We uphold the highest standards of honesty, ethics, and moral values, instilling in our students the importance of doing what is right even when no one is watching.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="value-title">Global Perspective</h3>
+                    <p class="value-desc">We prepare our students to be responsible global citizens who understand and respect different cultures, perspectives, and environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="team-title">Our Leadership</h2>
+            <p class="team-intro">Our school is guided by a team of experienced educators and administrators who are passionate about providing quality education and nurturing young minds. They bring their expertise, dedication, and vision to create an environment where students can thrive academically and personally.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/assets/images/sc5.jpg" alt="Principal">
+                    </div>
+                    <div class="member-info">
+                        <h4>V K Barvathavarthini</h4>
+                        <div class="member-position">Correspondent & Principal</div>
+                        <div class="member-bio">
+                            With over 20 years of experience in education, Mrs. Barvathavarthini leads our institution with vision and dedication. She believes in nurturing each student's unique potential.
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="/assets/images/sc6.jpg" alt="Vice Principal">
+                    </div>
+                    <div class="member-info">
+                        <h4>Dr. Rajesh Kumar</h4>
+                        <div class="member-position">Vice Principal</div>
+                        <div class="member-bio">
+                            Dr. Kumar oversees academic affairs and curriculum development. His innovative teaching methods have significantly enhanced our students' learning experiences.
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section" style="padding: 80px 0; background-color: #f9f9f9;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">School Achievements</h2>
+            
+            <div class="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca1.jpg" alt="Yoga Achievement" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">National Yoga Record</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our students performed 23 asanas in 20 minutes and 23 seconds, setting a remarkable record and earning national recognition for their dedication to yoga.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Date:</strong> March 18, 2023</p>
+                            <p><strong>Recognition:</strong> National Record</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca2.jpg" alt="Academic Excellence Award" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">100% Pass Percentage</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our school achieved a remarkable 100% pass percentage in the 10th and 12th standard board examinations, with multiple students scoring above 90%.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Year:</strong> 2023</p>
+                            <p><strong>Recognition:</strong> District Honor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca3.jpg" alt="Sports Championship" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">State Sports Champions</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our school sports team won the State Level Inter-School Sports Championship, demonstrating excellence in athletics, cricket, and badminton.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Year:</strong> 2022</p>
+                            <p><strong>Recognition:</strong> State Championship</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca4.jpg" alt="Science Exhibition" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">National Science Exhibition</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our students won first place at the National Science Exhibition for their innovative project on sustainable energy solutions for rural communities.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Year:</strong> 2023</p>
+                            <p><strong>Recognition:</strong> National First Prize</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca5.jpg" alt="Cultural Competition" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">Cultural Excellence Award</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our school received the Cultural Excellence Award for outstanding performances in dance, music, and theater at the Inter-School Cultural Festival.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Year:</strong> 2023</p>
+                            <p><strong>Recognition:</strong> Regional Award</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" style="background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+                    <div class="achievement-image" style="height: 200px; overflow: hidden;">
+                        <img src="/assets/images/sca7.jpg" alt="Green School Award" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="achievement-content" style="padding: 25px;">
+                        <h3 style="font-size: 20px; color: #043d72; margin-bottom: 15px;">Green School Award</h3>
+                        <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Our school was recognized with the Green School Award for implementing sustainable practices, including rainwater harvesting, solar energy, and extensive tree planting.</p>
+                        <div style="color: #777; font-size: 14px;">
+                            <p><strong>Year:</strong> 2022</p>
+                            <p><strong>Recognition:</strong> State Environmental Award</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/assets/images/sc1.jpg" alt="School Gallery - Yoga Practice">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/sc2.jpg" alt="School Gallery - Classroom Activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/sc3.jpg" alt="School Gallery - Sports Events">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/sc4.jpg" alt="School Gallery - Cultural Programs">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/sc5.jpg" alt="School Gallery - Science Exhibition">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/images/sc6.jpg" alt="School Gallery - School Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yoga Program Highlight -->
+    <section class="featured-event" style="background-color: #f9f9f9;">
+        <div class="event-container">
+            <h2 class="section-title">Our Yoga Program</h2>
+            <div class="event-box">
+                <div class="event-text">
+                    <h3>Nurturing Mind, Body, and Spirit Through Yoga</h3>
+                    <p>Our school takes pride in our special yoga program, which is designed to help students develop physical strength, mental clarity, and emotional balance. Under the guidance of experienced instructors, our students learn various asanas and breathing techniques that enhance their overall well-being.</p>
+                    <p>Regular practice of yoga has proven benefits for our students, including improved concentration, reduced stress, better physical fitness, and enhanced self-discipline. These qualities translate into better academic performance and personal growth.</p>
+                    <p>Our yoga program is integrated into the school curriculum and is available to students of all ages. The program has received recognition for its excellence, with our students participating in and winning various competitions at the district, state, and national levels.</p>
+                </div>
+                <div class="event-images">
+                    <div class="event-image">
+                        <img src="/assets/images/y1.jpg" alt="Students in yoga class">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/y2.jpg" alt="Yoga meditation session">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/y3.jpg" alt="Yoga competition">
+                    </div>
+                    <div class="event-image">
+                        <img src="/assets/images/y4.jpg" alt="Group yoga practice">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info-container">
+                <h2 class="contact-title">Get In Touch</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Our Location</h4>
+                        <p>123 Education Street, Chennai, Tamil Nadu, India</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+919876543210">+91 9876543210</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:info@sbmatricschool.com">info@sbmatricschool.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Sri Bhuwaneshwari Matric School is dedicated to providing quality education that nurtures intellect, character, and global awareness in every student.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Pre-Primary</a></li>
+                    <li><a href="#">Primary</a></li>
+                    <li><a href="#">Middle School</a></li>
+                    <li><a href="#">High School</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">Arts & Culture</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, Chennai, Tamil Nadu, India</p>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@sbmatricschool.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sri Bhuwaneshwari Matric School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.add('active');
+        });
+        
+        document.querySelector('.close-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.remove('active');
+        });
+        
+        // Basic Slider Functionality
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Uncomment to enable auto slider
+        // setInterval(nextSlide, 5000);
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
